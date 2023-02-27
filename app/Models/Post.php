@@ -15,5 +15,8 @@ class Post extends Model
         'postCreator',
     ];
 
-
+    public function users()
+    {
+    	return $this->belongsTo('App\Models\User');
+    }
 }
