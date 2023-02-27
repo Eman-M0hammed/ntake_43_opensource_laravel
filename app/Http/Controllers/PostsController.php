@@ -11,7 +11,7 @@ class PostsController extends Controller
     //
     function index()
     {
-        $posts = Post::get();
+        $posts = Post::join('users', 'users.id', '=', 'posts.postCreator')->get(['posts.*', 'users.name']);
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -33,6 +33,7 @@ class PostsController extends Controller
 
         ]);
         $newPost = $request->all();
+        // default value to post creator because the user doesn't login
         $newPost['postCreator']=2;
         Post::create($newPost);
         return redirect('posts')->with('success', "The Post is Created Successfully");
@@ -52,7 +53,7 @@ class PostsController extends Controller
 
         ]);
         $updatedPost = $request->except(['_method', '_token']);
-        $updatedPost['postCreator']=2;
+        $updatedPost['postCreator']=$post['postCreator'];
         $post->Update($updatedPost);
         return redirect('posts')->with('success', "The Post is Updated Successfully");
 

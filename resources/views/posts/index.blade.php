@@ -64,7 +64,7 @@
                 <tr class="@if ($loop->first) active @endif">
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->description }}</td>
-                    <td>{{ $post->postCreator }}</td>
+                    <td>{{ $post->name }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>
                     <form action="{{ route('post.show', $post->id) }}" method="get"><button>Show</button></form>
