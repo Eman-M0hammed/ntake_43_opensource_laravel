@@ -12,15 +12,21 @@ class PostsController extends Controller
     function index()
     {
         $posts = Post::get();
-        return view('posts', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts]);
     }
 
     function show($id){
         $post = Post::find($id);
         $user = User::find($post->postCreator);
-        return view('show', ['post' => $post, 'user'=>$user]);
+        return view('posts.show', ['post' => $post, 'user'=>$user]);
 
     }
+    function create(){
+        return view('posts.create');
+
+    }
+
+    function store(Request $request){}
 
     function update($id){}
 
