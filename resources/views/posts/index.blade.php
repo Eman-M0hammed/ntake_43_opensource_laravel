@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
     <style>
 
         .active {
@@ -29,11 +30,23 @@
             padding: 5px 15px;
             margin: 0 5px;
         }
+        .alert-success{
+            background-color: #adb3ed;
+            padding: 20px;
+            font-size: 20px;
+            margin-top: 10px;
+            width: 25%;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
 
+    <a href="{{route('post.create')}}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">create new post</a>
+    @if(Session::has('created'))
+    <div class="alert-success">{{Session::get('created')}}</div>
+    @endif
     <h1>All Posts</h1>
     <table border="1">
         <thead>

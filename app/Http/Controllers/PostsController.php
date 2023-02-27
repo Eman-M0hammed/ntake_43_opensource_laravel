@@ -26,7 +26,18 @@ class PostsController extends Controller
 
     }
 
-    function store(Request $request){}
+    function store(Request $request){
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+
+        ]);
+        $newPost = $request->all();
+        $newPost['postCreator']=2;
+        Post::create($newPost);
+        return redirect('posts')->with('created', "The Post is Created Successfully");
+
+    }
 
     function update($id){}
 
