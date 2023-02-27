@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PostsController extends Controller
 {
     //
-    function getPosts()
+    function index()
     {
         $posts = Post::get();
         return view('posts', ['posts' => $posts]);

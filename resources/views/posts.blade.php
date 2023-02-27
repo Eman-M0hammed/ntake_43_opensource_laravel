@@ -26,7 +26,7 @@
             border: 1px solid black;
             border-radius: 5px;
             background-color: #dfd7fa;
-            padding: 5px;
+            padding: 5px 15px;
             margin: 0 5px;
         }
     </style>
@@ -55,7 +55,7 @@
                     <td>{{ $post->created_at }}</td>
                     <td>
                     <form action="{{ route('post.show', $post->id) }}" method="get"><button>Show</button></form>
-                    <form action="" method="post"><button>Update</button></form>
+                    <form action="" method="post"><button>Edit</button></form>
                     <form action="" method="post"><button>Delete</button></form>
                     
                     </td>
