@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PostsController extends Controller
 {
     //
-    function getProducts()
+    function getPosts()
     {
         $posts = Post::get();
         return view('posts', ['posts' => $posts]);

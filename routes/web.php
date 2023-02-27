@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 // select product
 // select category
 // select recommended
-Route::get('/meme', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/product', [ProductController::class, 'getProducts']);
+Route::get('/posts', [PostsController::class, 'getPosts']);
