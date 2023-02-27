@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // select product
 // select category
 // select recommended
-Route::get('/', function () {
+Route::get('/meme', function () {
     return view('welcome');
 });
 
