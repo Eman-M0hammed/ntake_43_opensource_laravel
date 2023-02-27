@@ -54,7 +54,7 @@
                     <td>{{ $post->postCreator }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>
-                    <form action="" method="get"><button>Show</button></form>
+                    <form action="{{ route('post.show', $post->id) }}" method="get"><button>Show</button></form>
                     <form action="" method="post"><button>Update</button></form>
                     <form action="" method="post"><button>Delete</button></form>
                     

@@ -18,8 +18,7 @@ class PostsController extends Controller
     function show($id){
         $post = Post::find($id);
         $user = User::find($post->postCreator);
-        $data = $post->concat($user);
-        return view('show', ['post' => $data]);
+        return view('show', ['post' => $post, 'user'=>$user]);
 
     }
 

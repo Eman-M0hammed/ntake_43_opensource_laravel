@@ -24,3 +24,4 @@ Route::get('/', function () {
 
 
 Route::get('/posts', [PostsController::class, 'getPosts']);
+Route::get('/showPost/{id}', [PostsController::class, 'show'])->name('post.show');
