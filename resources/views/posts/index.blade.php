@@ -44,8 +44,8 @@
 <body>
 
     <a href="{{route('post.create')}}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">create new post</a>
-    @if(Session::has('created'))
-    <div class="alert-success">{{Session::get('created')}}</div>
+    @if(Session::has('success'))
+    <div class="alert-success">{{Session::get('success')}}</div>
     @endif
     <h1>All Posts</h1>
     <table border="1">
@@ -69,7 +69,11 @@
                     <td>
                     <form action="{{ route('post.show', $post->id) }}" method="get"><button>Show</button></form>
                     <form action="" method="post"><button>Edit</button></form>
-                    <form action="" method="post"><button>Delete</button></form>
+                    <form action="{{ route('post.destroy', $post->id) }}" method="post"> 
+                        @method('delete')
+                        @csrf()
+                        <button>Delete</button>
+                    </form>
                     
                     </td>
                 </tr>

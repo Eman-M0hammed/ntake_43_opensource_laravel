@@ -35,7 +35,7 @@ class PostsController extends Controller
         $newPost = $request->all();
         $newPost['postCreator']=2;
         Post::create($newPost);
-        return redirect('posts')->with('created', "The Post is Created Successfully");
+        return redirect('posts')->with('success', "The Post is Created Successfully");
 
     }
 
@@ -43,7 +43,10 @@ class PostsController extends Controller
 
     function edit($id){}
 
-    function destroy($id){}
+    function destroy($id){
+        $post = Post::find($id)->delete();
+        return redirect('posts')->with('success', "The Post is Deleted Successfully");
+    }
 
     
 }
