@@ -39,9 +39,24 @@ class PostsController extends Controller
 
     }
 
-    function update($id){}
+    function update($id){
+        $post = Post::find($id);
+        return view('posts.edit', ['post' => $post]);
+    }
 
-    function edit($id){}
+    function edit($id, Request $request){
+        $post = Post::find($id);
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+
+        ]);
+        $updatedPost = $request->except(['_method', '_token']);
+        $updatedPost['postCreator']=2;
+        $post->Update($updatedPost);
+        return redirect('posts')->with('success', "The Post is Updated Successfully");
+
+    }
 
     function destroy($id){
         $post = Post::find($id)->delete();

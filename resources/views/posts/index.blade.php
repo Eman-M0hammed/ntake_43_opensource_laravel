@@ -68,7 +68,7 @@
                     <td>{{ $post->created_at }}</td>
                     <td>
                     <form action="{{ route('post.show', $post->id) }}" method="get"><button>Show</button></form>
-                    <form action="" method="post"><button>Edit</button></form>
+                    <form action="{{ route('post.update', $post->id) }}" method="get"> <button>Edit</button></form>
                     <form action="{{ route('post.destroy', $post->id) }}" method="post"> 
                         @method('delete')
                         @csrf()
