@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -32,6 +33,7 @@ class UsersController extends Controller
 
         ]);
         $newUser = $request->all();
+        $newUser['password'] = Hash::make($newUser['password']);
         User::create($newUser);
         return redirect('users')->with('success', "The User Account is Created Successfully");
 
@@ -46,10 +48,11 @@ class UsersController extends Controller
         $user = User::find($id);
         $request->validate([
             'name'=>'required',
-            'email'=>'required|email|unique:users,email',
+            'email'=>'required|email',
             'password'=>'required'
 
         ]);
+        $request['password'] = Hash::make($request['password']);
         $updatedData = $request->except(['_method', '_token']);
         $user->Update($updatedData);
         return redirect('users')->with('success', "The User is Updated Successfully");

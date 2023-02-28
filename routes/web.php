@@ -38,4 +38,4 @@ Route::get('/createUser', [UsersController::class, 'create'])->name('user.create
 Route::post('/createUser', [UsersController::class, 'store'])->name('user.store');
 Route::delete('/deleteUser/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
 Route::get('/updateUser/{id}', [UsersController::class, 'update'])->name('user.update');
-Route::put('/editUser/{id}', [UsersControllergit::class, 'edit'])->name('user.edit');
+Route::put('/editUser/{id}', [UsersController::class, 'edit'])->name('user.edit');
