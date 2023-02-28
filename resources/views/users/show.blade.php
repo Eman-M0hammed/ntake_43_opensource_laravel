@@ -10,7 +10,7 @@
             box-sizing: border-box;
         }
         div{
-            width: 600px;  
+            width: 900px;  
             margin: 10px 10px 30px;
             padding-bottom: 15px;
             border: 1px solid rgba(0, 0, 0, 0.295);
@@ -69,7 +69,7 @@
         <p>Posts Creator info</p> 
         <p> <span>name:- </span> {{ $user->name }}  <br>
             <span>Email:- </span> {{ $user->email }} <br>
-            <span>Email:- </span> {{ $user->password }} <br>
+            <span>password:- </span> {{ $user->password }} <br>
             <span>Created at:- </span> {{ $user->created_at }} <br>
         </p> 
     </div>

@@ -43,17 +43,16 @@
 
 <body>
 
-    <a href="{{route('post.create')}}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">create new post</a>
+    <a href="{{route('user.create')}}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">Add new User</a>
     @if(Session::has('success'))
     <div class="alert-success">{{Session::get('success')}}</div>
     @endif
-    <h1>All Posts</h1>
+    <h1>All Users</h1>
     <table border="1">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th></th>
                 <th>Created at</th>
                 <th>Action</th>
                 
@@ -66,9 +65,9 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td>
-                    <form action="{{ route('post.show', $user->id) }}" method="get"><button>Show</button></form>
-                    <form action="{{ route('post.update', $user->id) }}" method="get"> <button>Edit</button></form>
-                    <form action="{{ route('post.destroy', $user->id) }}" method="post"> 
+                    <form action="{{ route('user.show', $user->id) }}" method="get"><button>Show</button></form>
+                    <form action="{{ route('user.update', $user->id) }}" method="get"> <button>Edit</button></form>
+                    <form action="{{ route('user.destroy', $user->id) }}" method="post"> 
                         @method('delete')
                         @csrf()
                         <button>Delete</button>
