@@ -43,16 +43,17 @@
         <p>
             <span>title:- </span> {{ $post->title }} <br>
             <span> Description:- </span>  <br>
-            {{ $post->description }}
+            {{ $post->description }} <br> <br>
+            <span>Created at:- </span> {{ $post->created_at }} <br>
         </p>
     
     </div>
 
     <div>
         <p>Post Creator info</p> 
-        <p> <span>name:- </span> {{ $user->name }}  <br>
-            <span>Email:- </span> {{ $user->email }} <br>
-            <span>Created at:- </span> {{ $user->created_at }} <br>
+        <p> <span>name:- </span> {{ $post->user->name }}  <br>
+            <span>Email:- </span> {{ $post->user->email }} <br>
+            <span>Created at:- </span> {{ $post->user->created_at }} <br>
         </p>
         
         
