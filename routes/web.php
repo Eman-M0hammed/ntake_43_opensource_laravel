@@ -30,3 +30,11 @@ Route::post('/createPost', [PostsController::class, 'store'])->name('post.store'
 Route::delete('/deletePost/{id}', [PostsController::class, 'destroy'])->name('post.destroy');
 Route::get('/updatePost/{id}', [PostsController::class, 'update'])->name('post.update');
 Route::put('/editPost/{id}', [PostsController::class, 'edit'])->name('post.edit');
+// user routes
+Route::get('/users', [PostsController::class, 'index']);
+Route::get('/showUsers/{id}', [UsersController::class, 'show'])->name('user.show');
+Route::get('/createUser', [UsersController::class, 'create'])->name('user.create');
+Route::post('/createUser', [UsersController::class, 'store'])->name('user.store');
+Route::delete('/deleteUser/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
+Route::get('/updateUser/{id}', [UsersController::class, 'update'])->name('user.update');
+Route::put('/editUser/{id}', [UsersControllergit::class, 'edit'])->name('user.edit');
