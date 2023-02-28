@@ -11,14 +11,16 @@ class PostsController extends Controller
     //
     function index()
     {
-        $posts = Post::join('users', 'users.id', '=', 'posts.postCreator')->get(['posts.*', 'users.name']);
+        // $posts = Post::join('users', 'users.id', '=', 'posts.postCreator')->get(['posts.*', 'users.name']);
+        $posts = Post::get();
         return view('posts.index', ['posts' => $posts]);
     }
 
     function show($id){
         $post = Post::find($id);
-        $user = User::find($post->postCreator);
-        return view('posts.show', ['post' => $post, 'user'=>$user]);
+        return view('posts.show', ['post' => $post]);
+        // $user = User::find($post->postCreator);
+        // return view('posts.show', ['post' => $post, 'user'=>$user]);
 
     }
     function create(){
