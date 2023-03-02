@@ -12,7 +12,7 @@ class PostsController extends Controller
     function index()
     {
         // $posts = Post::join('users', 'users.id', '=', 'posts.postCreator')->get(['posts.*', 'users.name']);
-        $posts = Post::get();
+        $posts = Post::paginate();
         return view('posts.index', ['posts' => $posts]);
     }
 

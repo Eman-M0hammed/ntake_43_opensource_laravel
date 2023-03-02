@@ -15,6 +15,7 @@ class Post extends Model
         'postCreator',
     ];
 
+    protected $perPage = 5;
   
     /**
      * Get the user that owns the Post
