@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Str;
 class AuthController extends Controller
 {
 
@@ -18,7 +18,7 @@ class AuthController extends Controller
              $user = new User();
              $user->name = $data->name;
              $user->email = $data->email;
-             $user->password =  Hash::make(str_random(5));
+             $user->password =  Hash::make(Str::random(5));
              $user->save();
           }
         Auth::login($user);
