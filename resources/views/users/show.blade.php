@@ -69,7 +69,6 @@
         <p>Posts Creator info</p> 
         <p> <span>name:- </span> {{ $user->name }}  <br>
             <span>Email:- </span> {{ $user->email }} <br>
-            <span>password:- </span> {{ $user->password }} <br>
             <span>Created at:- </span> {{ $user->created_at }} <br>
         </p> 
     </div>
@@ -83,7 +82,6 @@
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Post Creator</th>
                 <th>Created at</th>
                 <th>Action</th>
                 
@@ -94,7 +92,6 @@
                 <tr class="@if ($loop->first) active @endif">
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->description }}</td>
-                    <td>{{ $post->user->name }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>
                     <form action="{{ route('post.show', $post->id) }}" method="get"><button>Show</button></form>
