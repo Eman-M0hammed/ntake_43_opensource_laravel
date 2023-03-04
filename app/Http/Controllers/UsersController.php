@@ -11,7 +11,7 @@ class UsersController extends Controller
     //
     function index()
     {
-        $users = User::get();
+        $users = User::paginate();
         return view('users.index', ['users' => $users]);
     }
 
