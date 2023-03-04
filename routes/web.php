@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +46,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/login/google', [App\Http\Controllers\AuthController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback', [App\Http\Controllers\AuthController::class, 'handleGoogleCallback']);
+//Facebook
+Route::get('/login/facebook', [App\Http\Controllers\AuthController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('/login/facebook/callback', [App\Http\Controllers\AuthController::class, 'handleFacebookCallback']);
+//Github
+Route::get('/login/github', [App\Http\Controllers\AuthController::class, 'redirectToGithub'])->name('login.github');
+Route::get('/login/github/callback', [App\Http\Controllers\AuthController::class, 'handleGithubCallback']);

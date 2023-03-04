@@ -15,6 +15,13 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
+            <div class="col-md-6 offset-md-3">
+                <a href="{{route('login.google')}}" class="btn btn-danger btn-block mb-2 text-center w-100" >Login with Google</a>
+                <a href="{{route('login.facebook')}}" class="btn btn-primary btn-block mb-2 text-center w-100">Login with Facebook</a>
+                <a href="{{route('login.github')}}" class="btn btn-dark btn-block text-center w-100">Login with Github</a>
+                <p class="text-center">OR</p>
+             </div>
+
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
