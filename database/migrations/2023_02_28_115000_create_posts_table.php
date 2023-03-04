@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('description');
             $table->foreignId('postCreator');
             $table->timestamps();
-            $table->foreign('postCreator')->references('id')->on('users');
+            $table->foreign('postCreator')->references('id')->on('users')
+            ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
